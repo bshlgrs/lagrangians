@@ -1,8 +1,21 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import SystemSpecifier from './SystemSpecifier.js'
+import SystemStore from './SystemStore.js'
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      system: Immutable.Map({
+        particles: Immutable.List(),
+        gravity: true,
+        forces: Immutable.List()
+      })
+    };
+  }
+
   render() {
     return (
       <div className="App">
@@ -13,6 +26,10 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+
+        <SystemSpecifier
+          system={this.state.system}
+          updateSystem={(f) => this.updateSystem(f)} />
       </div>
     );
   }
