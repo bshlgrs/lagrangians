@@ -9,7 +9,7 @@ class TestPhysics(unittest.TestCase):
                 {
                     'name': 'A',
                     'mass': 1,
-                    'position': { 'type': 'constrained', 'x': '0', 'y': 'a' }
+                    'placement': { 'type': 'constrained', 'x': '0', 'y': 'a' }
                 }
             ],
             'gravity': True
@@ -36,11 +36,10 @@ class TestPhysics(unittest.TestCase):
         single_pendulum = System({
             'particles': [
                 { 'name': 'A',
-                  'position': {
+                  'placement': {
                       'type': 'pole',
                       'origin': {'type': 'fixed', 'position': (0, 0) },
                       'length': l
-
                   }
                 }
             ],
@@ -57,11 +56,11 @@ class TestPhysics(unittest.TestCase):
         double_pendulum = System({
             'particles': [
                 { 'name': 'A',
-                  'position': { 'type': 'pole', 'origin': {'type': 'fixed', 'position': (0, 0) }, 'length': 1 }
+                  'placement': { 'type': 'pole', 'origin': {'type': 'fixed', 'position': (0, 0) }, 'length': 1 }
                 },
                 { 'name': 'B',
                   'mass': 1,
-                  'position': { 'type': 'pole', 'origin': {'type': 'particle', 'particle': 'A' }, 'length': 1 }
+                  'placement': { 'type': 'pole', 'origin': {'type': 'particle', 'particle': 'A' }, 'length': 1 }
                 }
             ],
             'gravity': True
